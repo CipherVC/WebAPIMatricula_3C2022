@@ -15,7 +15,7 @@ namespace API.Bll.Error
         {
             this.adError = accesoDatosError;
         }
-
+        //random
         public API.Dto.Error.Salida.AgregarError AgregarError(Dto.Error.Entrada.AgregarError pInformacion)
         {
             API.Dto.Error.Salida.AgregarError respuesta = new API.Dto.Error.Salida.AgregarError();
