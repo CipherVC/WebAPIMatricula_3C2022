@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\API.BII.Matricula\API.Bll.Matricula.csproj" />
+    <ProjectReference Include="..\API.Dal.General\API.Dal.General.csproj" />
+  </ItemGroup>
+
 </Project>
