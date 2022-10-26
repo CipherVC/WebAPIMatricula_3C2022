@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Dto.Estudiante.Entrada
+namespace API.Dto.Carpeta.Entrada
 {
-    public class VerTodosEstudiantes:General.EntradaAPI
+    internal class VerTodosCarpeta : General.EntradaAPI
     {
     }
 }
