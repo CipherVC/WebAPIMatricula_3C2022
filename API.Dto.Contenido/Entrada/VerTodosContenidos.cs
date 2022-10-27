@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Dto.Estudiante.Entrada
+namespace API.Dto.Contenido.Entrada
 {
-    public class VerTodosEstudiantes:General.EntradaAPI
+    public class VerTodosContenidos:General.EntradaAPI
     {
+
     }
 }

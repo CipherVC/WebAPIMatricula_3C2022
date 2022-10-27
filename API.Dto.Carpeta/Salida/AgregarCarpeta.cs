@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Dto.Estudiante.Entrada
+namespace API.Dto.Carpeta.Salida
 {
-    public class VerTodosEstudiantes:General.EntradaAPI
+    internal class AgregarCarpeta:General.RespuestaAPI
     {
+        public int Codigo { get; set; }
     }
 }
