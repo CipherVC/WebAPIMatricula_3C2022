@@ -19,7 +19,7 @@ namespace API.Dal.Contenido
         public AdContenido(IOptions<AppSettings> oConfiguraciones) {
             manager=new ConexionManager(oConfiguraciones);
         }
-        public Dto.Contenido.Salida.VerTodosContenidos VerTodosContenidos(){
+        public Dto.Contenido.Salida.VerTodosContenidos VerTodosContenido(){
             IDbConnection oConexion = null;
             API.Dto.Contenido.Salida.VerTodosContenidos resultado = new API.Dto.Contenido.Salida.VerTodosContenidos();
             oConexion = manager.GetConexion();

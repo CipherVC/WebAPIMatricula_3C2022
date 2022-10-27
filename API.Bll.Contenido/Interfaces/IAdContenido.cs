@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Bll.Contenido.Interfaces
 {
-    public class IAdContenido
+    public interface IAdContenido
     {
         public API.Dto.Contenido.Salida.VerTodosContenidos VerTodosContenido();
         public API.Dto.Contenido.Salida.VerDetalleContenido VerDetalleContenido(API.Dto.Contenido.Entrada.VerDetalleContenido pInformacion);
