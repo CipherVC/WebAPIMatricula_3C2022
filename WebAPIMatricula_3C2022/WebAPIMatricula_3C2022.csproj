@@ -13,11 +13,13 @@
   <ItemGroup>
     <ProjectReference Include="..\API.BII.Curso\API.Bll.Curso.csproj" />
     <ProjectReference Include="..\API.BII.Matricula\API.Bll.Matricula.csproj" />
+    <ProjectReference Include="..\API.Bll.Carpeta\API.Bll.Carpeta.csproj" />
     <ProjectReference Include="..\API.Bll.Contenido\API.Bll.Contenido.csproj" />
     <ProjectReference Include="..\API.Bll.Departamento\API.Bll.Departamento.csproj" />
     <ProjectReference Include="..\API.Bll.Error\API.Bll.Error.csproj" />
     <ProjectReference Include="..\API.Bll.Estudiante\API.Bll.Estudiante.csproj" />
     <ProjectReference Include="..\API.Bll.Profesor\API.Bll.Profesor.csproj" />
+    <ProjectReference Include="..\API.Dal.Carpeta\API.Dal.Carpeta.csproj" />
     <ProjectReference Include="..\API.Dal.Contenido\API.Dal.Contenido.csproj" />
     <ProjectReference Include="..\API.Dal.Curso\API.Dal.Curso.csproj" />
     <ProjectReference Include="..\API.Dal.Departamento\API.Dal.Departamento.csproj" />

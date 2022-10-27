@@ -11,7 +11,7 @@ namespace API.Dto.Contenido.Entrada
         public int Codigo { get; set; }
         public string NombreArchivo { get; set; }
         public string Ruta { get; set; }
-        public string CodigoCarpeta { get; set; }
+        public int CodigoCarpeta { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }

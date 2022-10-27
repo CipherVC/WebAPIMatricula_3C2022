@@ -13,7 +13,10 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using WebAPI;
 using WebAPI.Services;
-
+using API.Bll.Contenido.Interfaces;
+using API.Dal.Contenido;
+using API.Bll.Carpeta.Interfaces;
+using API.Dal.Carpeta;
 
 namespace WebAPIMatricula_3C2022
 {
@@ -95,7 +98,8 @@ namespace WebAPIMatricula_3C2022
             services.AddScoped<IAdError, AdError>();
             services.AddScoped<IAdDepartamento, AdDepartamento>();
             services.AddScoped<IAdProfesor, AdProfesor>();
-
+            services.AddScoped<IAdContenido, AdContenido>();
+            services.AddScoped<IAdCarpeta, AdCarpeta>();
             //agregar interface controllers
 
 

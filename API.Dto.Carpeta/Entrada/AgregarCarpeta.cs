@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Dto.Carpeta.Entrada
 {
-    internal class AgregarCarpeta:General.EntradaAPI
+    public class AgregarCarpeta:General.EntradaAPI
     {
         public string Nombre { get; set; }
         public DateTime FechaCreacion { get; set; }

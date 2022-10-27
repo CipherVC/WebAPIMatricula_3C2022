@@ -8,10 +8,10 @@ namespace API.Bll.Contenido.Interfaces
 {
     public interface IAdContenido
     {
-        public API.Dto.Contenido.Salida.VerTodosContenidos VerTodosContenido();
-        public API.Dto.Contenido.Salida.VerDetalleContenido VerDetalleContenido(API.Dto.Contenido.Entrada.VerDetalleContenido pInformacion);
-        public API.Dto.Contenido.Salida.AgregarContenido AgregarContenido(API.Dto.Contenido.Entrada.AgregarContenido pInformacion);
-        public API.Dto.Contenido.Salida.EditarContenido EditarContenido(API.Dto.Contenido.Entrada.EditarContenido pInformacion);
-        public API.Dto.Contenido.Salida.EliminarContenido EliminarContenido(API.Dto.Contenido.Entrada.EliminarContenido pInformacion);
+         API.Dto.Contenido.Salida.VerTodosContenidos VerTodosContenido();
+         API.Dto.Contenido.Salida.VerDetalleContenido VerDetalleContenido(API.Dto.Contenido.Entrada.VerDetalleContenido pInformacion);
+         API.Dto.Contenido.Salida.AgregarContenido AgregarContenido(API.Dto.Contenido.Entrada.AgregarContenido pInformacion);
+        API.Dto.Contenido.Salida.EditarContenido EditarContenido(API.Dto.Contenido.Entrada.EditarContenido pInformacion);
+         API.Dto.Contenido.Salida.EliminarContenido EliminarContenido(API.Dto.Contenido.Entrada.EliminarContenido pInformacion);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Dto.Carpeta.Entrada
 {
-    internal class VerDetalleCarpeta:General.EntradaAPI
+    public class VerDetalleCarpeta:General.EntradaAPI
     {
         public int Codigo { get; set; }
     }

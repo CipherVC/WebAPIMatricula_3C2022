@@ -8,10 +8,10 @@ namespace API.Dto.Carpeta.Salida
 {
     public class VerTodosCarpeta:General.RespuestaAPI
     {
-        public List<DatosCarpeta> VerTodosCarpetaList { get; set; }
+        public List<DatosCarpeta> ListaCarpeta { get; set; }
 
         public VerTodosCarpeta() {
-            VerTodosCarpetaList = new List<DatosCarpeta>();
+            ListaCarpeta = new List<DatosCarpeta>();
         }
 
     }

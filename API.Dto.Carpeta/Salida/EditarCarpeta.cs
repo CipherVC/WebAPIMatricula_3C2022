@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Dto.Carpeta.Salida
 {
-    internal class EditarCarpeta:General.RespuestaAPI
+    public class EditarCarpeta:General.RespuestaAPI
     {
         public int Codigo { get; set; }
         public string Nombre { get; set; }
