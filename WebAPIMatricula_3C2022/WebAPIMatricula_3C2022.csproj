@@ -13,10 +13,12 @@
   <ItemGroup>
     <ProjectReference Include="..\API.BII.Curso\API.Bll.Curso.csproj" />
     <ProjectReference Include="..\API.BII.Matricula\API.Bll.Matricula.csproj" />
+    <ProjectReference Include="..\API.Bll.Contenido\API.Bll.Contenido.csproj" />
     <ProjectReference Include="..\API.Bll.Departamento\API.Bll.Departamento.csproj" />
     <ProjectReference Include="..\API.Bll.Error\API.Bll.Error.csproj" />
     <ProjectReference Include="..\API.Bll.Estudiante\API.Bll.Estudiante.csproj" />
     <ProjectReference Include="..\API.Bll.Profesor\API.Bll.Profesor.csproj" />
+    <ProjectReference Include="..\API.Dal.Contenido\API.Dal.Contenido.csproj" />
     <ProjectReference Include="..\API.Dal.Curso\API.Dal.Curso.csproj" />
     <ProjectReference Include="..\API.Dal.Departamento\API.Dal.Departamento.csproj" />
     <ProjectReference Include="..\API.Dal.Error\API.Dal.Error.csproj" />
@@ -24,6 +26,8 @@
     <ProjectReference Include="..\API.Dal.General\API.Dal.General.csproj" />
     <ProjectReference Include="..\API.Dal.Matricula\API.Dal.Matricula.csproj" />
     <ProjectReference Include="..\API.Dal.Profesor\API.Dal.Profesor.csproj" />
+    <ProjectReference Include="..\API.Dto.Carpeta\API.Dto.Carpeta.csproj" />
+    <ProjectReference Include="..\API.Dto.Contenido\API.Dto.Contenido.csproj" />
     <ProjectReference Include="..\API.Dto.Curso\API.Dto.Curso.csproj" />
     <ProjectReference Include="..\API.Dto.Departamento\API.Dto.Departamento.csproj" />
     <ProjectReference Include="..\API.Dto.Error\API.Dto.Error.csproj" />
