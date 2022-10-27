@@ -1,16 +1,18 @@
-﻿using API.Bll.Error.Interfaces;
+﻿using API.Dal.Profesor;
+using API.Bll.Profesor.Interfaces;
+using API.Dal.Departamento;
+using API.Bll.Departamento.Interfaces;
+using API.Bll.Error.Interfaces;
 using API.Bll.Estudiante.Interfaces;
 using API.Dal.Error;
 using API.Dal.Estudiante;
 using API.Dto.General;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using WebAPI;
 using WebAPI.Services;
-
 
 
 namespace WebAPIMatricula_3C2022
@@ -91,6 +93,10 @@ namespace WebAPIMatricula_3C2022
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdEstudiante, AdEstudiante>();
             services.AddScoped<IAdError, AdError>();
+            services.AddScoped<IAdDepartamento, AdDepartamento>();
+            services.AddScoped<IAdProfesor, AdProfesor>();
+
+            //agregar interface controllers
 
 
 

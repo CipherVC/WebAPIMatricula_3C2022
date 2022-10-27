@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Dto.Estudiante.Salida
+namespace API.Dto.Departamento.Entrada
 {
-    public class AgregarEstudiante : General.RespuestaAPI
+    public class VerDetalleDepartamento : General.EntradaAPI
     {
         public int Codigo { get; set; }
     }
-} 
+}
