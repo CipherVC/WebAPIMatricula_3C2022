@@ -40,7 +40,7 @@ namespace API.Dal.Contenido
                     dato = new DatosContenido();
                     dato.Codigo = Convert.ToInt32(objDr["Codigo"].ToString());
                     dato.NombreArchivo = objDr["NombreArchivo"].ToString();
-                    dato.Ruta = objDr["Ruta"].ToString();
+                    dato.Contenido = objDr["Contenido"].ToString();
                     dato.CodigoCarpeta = Convert.ToInt32(objDr["CodigoCarpeta"].ToString());
                     dato.FechaCreacion = DateTime.Parse(objDr["FechaCreacion"].ToString());
                     resultado.ListaContenido.Add(dato);
@@ -85,7 +85,7 @@ namespace API.Dal.Contenido
                 {
                     resultado.Codigo = Convert.ToInt32(objDr["Codigo"].ToString());
                     resultado.NombreArchivo = objDr["NombreArchivo"].ToString();
-                    resultado.Ruta = objDr["Ruta"].ToString();
+                    resultado.Contenido = objDr["Contenido"].ToString();
                     resultado.CodigoCarpeta = Convert.ToInt32(objDr["CodigoCarpeta"].ToString());
                     resultado.FechaCreacion = DateTime.Parse(objDr["FechaCreacion"].ToString());
 
@@ -119,7 +119,7 @@ namespace API.Dal.Contenido
 
 
                 oComando.Parameters.Add(manager.GetParametro("@NombreArchivo", pInformacion.NombreArchivo));
-                oComando.Parameters.Add(manager.GetParametro("@Ruta", pInformacion.Ruta));
+                oComando.Parameters.Add(manager.GetParametro("@Contenido", pInformacion.Contenido));
                 oComando.Parameters.Add(manager.GetParametro("@CodigoCarpeta", pInformacion.CodigoCarpeta));
                 oComando.Parameters.Add(manager.GetParametro("@FechaCreacion", pInformacion.FechaCreacion));
 
@@ -152,7 +152,7 @@ namespace API.Dal.Contenido
 
                 oComando.Parameters.Add(manager.GetParametro("@Codigo", pInformacion.Codigo));
                 oComando.Parameters.Add(manager.GetParametro("@NombreArchivo", pInformacion.NombreArchivo));
-                oComando.Parameters.Add(manager.GetParametro("@Ruta", pInformacion.Ruta));
+                oComando.Parameters.Add(manager.GetParametro("@Contenido", pInformacion.Contenido));
                 oComando.Parameters.Add(manager.GetParametro("@CodigoCarpeta", pInformacion.CodigoCarpeta));
                 oComando.Parameters.Add(manager.GetParametro("@FechaCreacion", pInformacion.FechaCreacion));
 
@@ -166,7 +166,7 @@ namespace API.Dal.Contenido
                 {
                     resultado.Codigo = Convert.ToInt32(objDr["Codigo"].ToString());
                     resultado.NombreArchivo = objDr["NombreArchivo"].ToString();
-                    resultado.Ruta = objDr["Ruta"].ToString();
+                    resultado.Contenido = objDr["Contenido"].ToString();
                     resultado.CodigoCarpeta = Convert.ToInt32(objDr["CodigoCarpeta"].ToString());
                     resultado.FechaCreacion = DateTime.Parse(objDr["FechaCreacion"].ToString());
                 }

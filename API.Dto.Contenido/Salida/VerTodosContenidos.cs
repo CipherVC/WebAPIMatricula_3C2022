@@ -20,7 +20,7 @@ namespace API.Dto.Contenido.Salida
     public class DatosContenido{
         public int Codigo { get; set; }
         public string NombreArchivo { get; set; }
-        public string Ruta { get; set; }
+        public string Contenido { get; set; }
         public int CodigoCarpeta { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
