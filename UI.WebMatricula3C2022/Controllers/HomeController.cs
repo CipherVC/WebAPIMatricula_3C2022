@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using UI.WebMatricula3C2022.Models;
 
@@ -12,7 +13,8 @@ namespace UI.WebMatricula3C2022.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Index()
         {
             return View();
