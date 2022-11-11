@@ -36,12 +36,12 @@ namespace UI.WebMatricula3C2022.Logica
             return JsonConvert.DeserializeObject<Models.Estudiante.Salida.EliminarEstudiante>(respuesta);
 
         }
-        public async Task<Models.Estudiante.Salida.VerTodosEstudiantes> VerTodosEstudiantes(Models.Estudiante.Entrada.EliminarEstudiante pDatos, string token)
+        public async Task<Models.Estudiante.Salida.VerDetalleEstudiante> VerDetalleEstudiante(Models.Estudiante.Entrada.VerDetalleEstudiante pDatos, string token)
         {
-            string encabezado = "Estudiante/VerTodosEstudiantes";
+            string encabezado = "Estudiante/VerDetalleEstudiantes";
             string cuerpo = JsonConvert.SerializeObject(pDatos);
             string respuesta = await lnConsumoAPI.ConsumirAPI(encabezado, cuerpo, token);
-            return JsonConvert.DeserializeObject<Models.Estudiante.Salida.VerTodosEstudiantes>(respuesta);
+            return JsonConvert.DeserializeObject<Models.Estudiante.Salida.VerDetalleEstudiante>(respuesta);
 
         }
 
