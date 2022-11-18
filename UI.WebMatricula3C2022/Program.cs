@@ -45,5 +45,8 @@ app.UseSession();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Accesso}/{action=Index}/{id?}");
-
+app.MapControllerRoute(
+    name: "Null",
+    pattern: "/"
+    );
 app.Run();

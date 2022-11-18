@@ -8,7 +8,7 @@ namespace UI.WebMatricula3C2022.Logica
 
 
         public async Task<Models.Estudiante.Salida.VerTodosEstudiantes> VerTodosEstudiantes(Models.Estudiante.Entrada.VerTodosEstudiantes oInsumos,string token) {
-            string encabezado = "/Estudiante/VerTodosEstudiantes";
+            string encabezado = "Estudiante/VerTodosEstudiantes";
             string cuerpo = JsonConvert.SerializeObject(oInsumos);
             string respuesta = await lnConsumoAPI.ConsumirAPI(encabezado, cuerpo, token);
             return JsonConvert.DeserializeObject<Models.Estudiante.Salida.VerTodosEstudiantes>(respuesta);
