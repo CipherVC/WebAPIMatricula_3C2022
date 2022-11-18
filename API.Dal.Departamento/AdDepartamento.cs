@@ -102,7 +102,7 @@ namespace API.Dal.Departamento
                 {
                     resultado.Codigo = Convert.ToInt32(objDr["Codigo"].ToString());
                     resultado.NombreDepartamento = objDr["NombreDepartamento"].ToString();
-                    resultado.DescripcionDepartamento = objDr["DescipcionDepartamento"].ToString();
+                    resultado.DescripcionDepartamento = objDr["DescripcionDepartamento"].ToString();
                     resultado.DirectorDepartamento = objDr["DirectorDepartamento"].ToString();
                     resultado.Telefono = objDr["Telefono"].ToString();
                 }
@@ -128,7 +128,10 @@ namespace API.Dal.Departamento
             {
                 oConexion = manager.GetConexion(); oConexion.Open();
 
-                oComando.Parameters.Add(manager.GetParametro("@NombreDepartamento", pInformacion.NombreDepartamento)); oComando.Parameters.Add(manager.GetParametro("@DescripcionDepartamento", pInformacion.DescripcionDepartamento)); oComando.Parameters.Add(manager.GetParametro("@DirectorDepartamento", pInformacion.DirectorDepartamento)); oComando.Parameters.Add(manager.GetParametro("@Telefono", pInformacion.Telefono));
+                oComando.Parameters.Add(manager.GetParametro("@NombreDepartamento", pInformacion.NombreDepartamento)); 
+                oComando.Parameters.Add(manager.GetParametro("@DescripcionDepartamento", pInformacion.DescripcionDepartamento)); 
+                oComando.Parameters.Add(manager.GetParametro("@DirectorDepartamento", pInformacion.DirectorDepartamento)); 
+                oComando.Parameters.Add(manager.GetParametro("@Telefono", pInformacion.Telefono));
 
                 IDataReader objDr = manager.GetDataReader(oComando, oConexion, "dbo.Agregar_Departamento");
 
