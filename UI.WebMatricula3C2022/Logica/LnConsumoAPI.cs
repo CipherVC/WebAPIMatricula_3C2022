@@ -6,7 +6,7 @@ namespace UI.WebMatricula3C2022.Logica
     public class LnConsumoAPI
     {
         public async Task<string> ConsumirAPI(string oEncabezado, string oCuerpo, string token) {
-            string oServidor = "https://localhost:7091/api/v1/";
+            string oServidor = "https://localhost:7269/api/v1";
 
             string oUrlServicio = string.Concat(oServidor, oEncabezado);
             try
@@ -18,7 +18,7 @@ namespace UI.WebMatricula3C2022.Logica
                     httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
                 }
-                var respuestaServicio= await httpClient.PatchAsync(oUrlServicio, new StringContent(oCuerpo, Encoding.UTF8,"application/json"));
+                var respuestaServicio= await httpClient.PostAsync(oUrlServicio, new StringContent(oCuerpo, Encoding.UTF8,"application/json"));
                 var result=await respuestaServicio.Content.ReadAsStringAsync();
                 return result;
             }

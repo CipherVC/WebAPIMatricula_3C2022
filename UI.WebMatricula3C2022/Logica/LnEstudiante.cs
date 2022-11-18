@@ -7,11 +7,11 @@ namespace UI.WebMatricula3C2022.Logica
         LnConsumoAPI lnConsumoAPI = new LnConsumoAPI();
 
 
-        public async Task<Models.Estudiante.Entrada.VerTodosEstudiantes> VerTodosEstudiantes(Models.Estudiante.Entrada.VerTodosEstudiantes oInsumos,string token) {
+        public async Task<Models.Estudiante.Salida.VerTodosEstudiantes> VerTodosEstudiantes(Models.Estudiante.Entrada.VerTodosEstudiantes oInsumos,string token) {
             string encabezado = "/Estudiante/VerTodosEstudiantes";
             string cuerpo = JsonConvert.SerializeObject(oInsumos);
             string respuesta = await lnConsumoAPI.ConsumirAPI(encabezado, cuerpo, token);
-            return JsonConvert.DeserializeObject<Models.Estudiante.Entrada.VerTodosEstudiantes>(respuesta);
+            return JsonConvert.DeserializeObject<Models.Estudiante.Salida.VerTodosEstudiantes>(respuesta);
         }
         public async Task<Models.Estudiante.Salida.AgregarEstudiante> AgregarEstudiante(Models.Estudiante.Entrada.AgregarEstudiante pDatos, string token) {
             string encabezado = "Estudiante/AgregarEstudiante";

@@ -50,7 +50,7 @@ namespace UI.WebMatricula3C2022.Controllers
             Models.Estudiante.Entrada.AgregarEstudiante parametro = new Models.Estudiante.Entrada.AgregarEstudiante();
             var usuario = HttpContext.Session.GetObjectFromJson<Models.Users.User>("UsuarioActual");
             var agregarEstud = await lnEstudiante.AgregarEstudiante(parametro, usuario.Token);
-            return View();
+            return Json(agregarEstud);
         }
     }
 }
