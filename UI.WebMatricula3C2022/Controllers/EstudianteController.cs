@@ -21,14 +21,15 @@ namespace UI.WebMatricula3C2022.Controllers
 
             ////GRRAFICOS////
             var random= new Random();
-            var etiquetas= new List<string>();
+            var etiquetas = new List<string>();
             var colores = new List<string>();
             var valores = new List<string>();
 
-            foreach(var estado in listaEstudiantes.ListaEstudiantes.GroupBy(e=> e.Estado).Select(group => new
+            foreach(var estado in listaEstudiantes.ListaEstudiantes.GroupBy(e=> e.Estado)
+                .Select(group => new
             {
-                Estado = group.Key.
-                Cantidad =group.Count
+                Estado = group.Key,
+                Cantidad =group.Count()
             }).OrderBy(x=> x.Estado))
             {
                 string color = String.Format("#{0:X6}", random.Next(0x1000000));
