@@ -38,7 +38,7 @@ namespace UI.WebMatricula3C2022.Logica
         }
         public async Task<Models.Estudiante.Salida.VerDetalleEstudiante> VerDetalleEstudiante(Models.Estudiante.Entrada.VerDetalleEstudiante pDatos, string token)
         {
-            string encabezado = "Estudiante/VerDetalleEstudiantes";
+            string encabezado = "Estudiante/VerDetalleEstudiante";
             string cuerpo = JsonConvert.SerializeObject(pDatos);
             string respuesta = await lnConsumoAPI.ConsumirAPI(encabezado, cuerpo, token);
             return JsonConvert.DeserializeObject<Models.Estudiante.Salida.VerDetalleEstudiante>(respuesta);
