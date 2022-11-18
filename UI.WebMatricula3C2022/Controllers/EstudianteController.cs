@@ -19,8 +19,12 @@ namespace UI.WebMatricula3C2022.Controllers
             return View(listaEstudiantes.ListaEstudiantes);
         }
         [HttpPost]
-        public async Task<JsonResult> AgregarEstudiante(Models.Estudiante.Entrada.AgregarEstudiante agregarEstudiante) { 
-                var
+        public async Task<JsonResult> AgregarEstudiante(Models.Estudiante.Entrada.AgregarEstudiante agregarEstudiante) {
+            LnEstudiante lnEstudiante = new LnEstudiante();
+            Models.Estudiante.Entrada.AgregarEstudiante parametro = new Models.Estudiante.Entrada.AgregarEstudiante();
+            var usuario = HttpContext.Session.GetObjectFromJson<Models.Users.User>("UsuarioActual");
+            var agregarEstud = await lnEstudiante.AgregarEstudiante(parametro, usuario.Token);
+            return View();
         }
     }
 }
