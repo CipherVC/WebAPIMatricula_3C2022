@@ -8,7 +8,7 @@ namespace WebAPIMatricula_3C2022.Controllers
     [Route("api/v1"+"/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
+    [AllowAnonymous]
     public class EstudianteController : Controller
     {
         private LnEstudiante oLnEstudiante;
