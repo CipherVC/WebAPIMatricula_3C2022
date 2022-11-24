@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\Profesor.js" />
+    <Content Remove="wwwroot\Scripts\Estudiante.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\Profesor.js" />
     <None Include="wwwroot\js\Estudiante.js" />
+    <None Include="wwwroot\Scripts\Estudiante.js" />
     <PackageReference Include="bootstrap" Version="5.2.2" />
     <PackageReference Include="jQuery" Version="3.6.0" />
     <PackageReference Include="jQuery.Validation" Version="1.19.5" />
