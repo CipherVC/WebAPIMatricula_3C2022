@@ -6,7 +6,7 @@ using UI.WebMatricula3C2022.Models.Users;
 
 namespace UI.WebMatricula3C2022.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController
     {
         public static string UrlBaseAuth { get; } = "http://localhost:4000/users/";
         public async Task<User> Authenticate(string username, string password)
@@ -29,6 +29,12 @@ namespace UI.WebMatricula3C2022.Controllers
             return JsonConvert.DeserializeObject<User>(
                 await response.Content.ReadAsStringAsync());
 
+        }
+        public async Task<string> Register(RegisterModel model) { 
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            var response =await client.PostAsync(UrlBaseAuth+"register",new StringContent(JsonConvert.SerializeObject(model),Encoding.UTF8,"application/json"));
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }

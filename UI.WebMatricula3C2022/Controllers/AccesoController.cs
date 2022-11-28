@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 using UI.WebMatricula3C2022.Logica;
 using UI.WebMatricula3C2022.Models;
+using UI.WebMatricula3C2022.Models.Users;
 
 namespace UI.WebMatricula3C2022.Controllers
 {
@@ -59,6 +60,20 @@ namespace UI.WebMatricula3C2022.Controllers
         public IActionResult Registro()
         {
             return View();
+        
+        }
+        [HttpPost]
+        public async Task<IActionResult> Registro(string identificacion,string nombreCompleto, string correo,string numeroTelefono,string username,string password,string Estado) {
+            RegisterModel model = new RegisterModel {
+                Identificacion=identificacion,
+                NombreCompleto=nombreCompleto,
+                CorreoElectronico=correo,
+                NumeroTelefono=numeroTelefono,
+                Username=username,Password=password,
+                Estado=Estado };
+            UsersController controller = new UsersController();
+            var response=await controller.Register(model);
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
