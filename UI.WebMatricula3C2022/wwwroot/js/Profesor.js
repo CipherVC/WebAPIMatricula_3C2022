@@ -254,7 +254,7 @@ function VerDetalleProfesor(codigo) {
             document.getElementById("IDAgregarProfesorCodigCurso").value = response.codigCurso;
             document.getElementById("IDAgregarProfesorCodigoDepartamento").value = response.codigoDepartamento;
 
-            
+
             $('#modalAgregarProfesor').modal('show');
         },
         error: function (request, status, err) {
