@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UI.WebMatricula3C2022.Models.Profesor.Salida.DatosProfesor>
+﻿@model IEnumerable<UI.WebMatricula3C2022.Models.Departamento.Salida.DatosDepartamento>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,23 +6,20 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <br />
-    <h2>Gestión de profesor</h2>
+    <h2>Gestión de Departamentos</h2>
 
     <div class="container-fluid">
         <br />
         <div style="width:100%; margin:0 auto;">
-            <button id='btnAbrirDialogAgregarProfesor' class="btn btn-primary" style="background-color: #1A2DF3; width:10%">Agregar</button>
+            <button id='btnAbrirDialogAgregarDepartamento' class="btn btn-primary" style="background-color: #1A2DF3; width:10%">Agregar</button>
             <br /><br />
-            <table class="display" id="ProfesoresTabla" style="width:100%">
+            <table class="display" id="DepartamentosTabla" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Identificación</th>
-                        <th>Nombre</th>
-                        <th>Especialidad</th>
+                        <th>Nombre del departamento</th>
+                        <th>Descripcion del departamento</th>
+                        <th>Director del departamento</th>
                         <th>Telefono</th>
-                        <th>Direccion</th>
-                        <th>Codigo curso</th>
-                        <th>Codigo departamento</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -30,30 +27,21 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td id='IdentificacionParam'>
-                                @Html.DisplayFor(modelItem => item.Identificacion)
-                            </td>
                             <td id='NombreParam'>
-                                @Html.DisplayFor(modelItem => item.NombreCompleto)
+                                @Html.DisplayFor(modelItem => item.NombreDepartamento)
                             </td>
-                            <td id='EspecialidadParam'>
-                                @Html.DisplayFor(modelItem => item.Especialidad)
+                            <td id='DescripcionDepartamentoParam'>
+                                @Html.DisplayFor(modelItem => item.DescripcionDepartamento)
+                            </td>
+                            <td id='DirectorDepartamentoParam'>
+                                @Html.DisplayFor(modelItem => item.DirectorDepartamento)
                             </td>
                             <td id='TelefonoParam'>
                                 @Html.DisplayFor(modelItem => item.Telefono)
                             </td>
-                            <td id='DireccionParam'>
-                                @Html.DisplayFor(modelItem => item.Direccion)
-                            </td>
-                            <td id='CodigoCursoParam'>
-                                @Html.DisplayFor(modelItem => item.CodigoCurso)
-                            </td>
-                            <td id='CodigoDepartamentoParam'>
-                                @Html.DisplayFor(modelItem => item.CodigoDepartamento)
-                            </td>
                             <td style="align-items:center">
-                                <a name="btnEditarProfesor" data-id="@item.Codigo" style="color: #1A2DF3"><i class="fa fa-edit"></i></a>
-                                <a name="btnEliminarProfesor" data-id="@item.Codigo" style="color: #1A2DF3"><i class="fa fa-trash"></i></a>
+                                <a name="btnEditarDepartamento" data-id="@item.Codigo" style="color: #1A2DF3"><i class="fa fa-edit"></i></a>
+                                <a name="btnEliminarDepartamento" data-id="@item.Codigo" style="color: #1A2DF3"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     }
@@ -62,52 +50,39 @@
             </table>
         </div>
     </div>
-    <div id="modalAgregarProfesor" class="modal fade" role="dialog">
+    <div id="modalAgregarDepartamento" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Agregar Profesor</h4>
+                    <h4 class="modal-title">Agregar Departamento</h4>
                 </div>
                 <br />
                 <div style="width: 80%; margin-left: 10%" class="modal-body">
                     <div>
-                        <label for="exampleInputEmail1">Código de profesor:</label>
-                        <input class="form-control" id="IDAgregarProfesorCodigo" disabled placeholder="Sin asignar">
+                        <label for="exampleInputEmail1">Código de Departamento:</label>
+                        <input class="form-control" id="IDAgregarDepartamentoCodigo" disabled placeholder="Sin asignar">
                     </div>
                     <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite la identificación:</label>
-                        <input class="form-control" id="IDAgregarProfesorIdentificacion">
+                        <label for="exampleInputEmail1">Digite el nombre del departamento:</label>
+                        <input class="form-control" id="IDAgregarDepartamentoNombre">
                     </div>
                     <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite el nombre:</label>
-                        <input class="form-control" id="IDAgregarProfesorNombre">
+                        <label for="exampleInputEmail1">Digite la descripcion del departamento:</label>
+                        <input class="form-control" id="IDAgregarDepartamentoDescripcion">
                     </div>
                     <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite la especialidad:</label>
-                        <input class="form-control" id="IDAgregarProfesorEspecialidad">
+                        <label for="exampleInputEmail1">Digite el director del departamento:</label>
+                        <input class="form-control" id="IDAgregarDepartamentoDirector">
                     </div>
                     <div style="margin-top: 3%">
                         <label for="exampleInputEmail1">Digite el telefono:</label>
-                        <input class="form-control" id="IDAgregarProfesorTelefono">
+                        <input class="form-control" id="IDAgregarDepartamentoTelefono">
                     </div>
-                    <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite la direccion:</label>
-                        <input class="form-control" id="IDAgregarProfesorDireccion">
-                    </div>
-                    <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite el codigo del curso:</label>
-                        <input class="form-control" id="IDAgregarProfesorCodigoCurso">
-                    </div>
-                    <div style="margin-top: 3%">
-                        <label for="exampleInputEmail1">Digite el codigo de departamento:</label>
-                        <input class="form-control" id="IDAgregarProfesorCodigoDepartamento">
-                    </div>
-
                 </div>
                 <br />
                 <div class="modal-footer">
-                    <button id='btnCancelarProfesor' type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    <button id='btnAgregarProfesor' type="button" class="btn btn-primary" style="background-color: #1A2DF3">Aceptar</button>
+                    <button id='btnCancelarDepartamento' type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button id='btnAgregarDepartamento' type="button" class="btn btn-primary" style="background-color: #1A2DF3">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -128,17 +103,17 @@
         </div>
     </div>
 
-    <div id="modalVentanaEliminarProfesor" class="modal fade" role="dialog">
+    <div id="modalVentanaEliminarDepartamento" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <br />
                 <div style="width: 80%; margin-left: 10%" class="modal-body">
-                    <p>¿Está seguro que desea eliminar el profesor?</p>
+                    <p>¿Está seguro que desea eliminar el Departamento?</p>
                 </div>
                 <br />
                 <div class="modal-footer">
-                    <button id='btnAceptarEliminarProfesorConfirmacion' type="button" class="btn btn-primary" style="background-color: #1A2DF3">Aceptar</button>
-                    <button id='btnCancelarEliminarProfesorConfirmacion' type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button id='btnAceptarEliminarDepartamentoConfirmacion' type="button" class="btn btn-primary" style="background-color: #1A2DF3">Aceptar</button>
+                    <button id='btnCancelarEliminarDepartamentoConfirmacion' type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -154,7 +129,7 @@
                 data: {
                     labels: @Html.Raw(ViewBag.Etiquetas),
                     datasets: [{
-                        label: "Profesores por direccion",
+                        label: "Departamentos por nombre",
                         backgroundColor: @Html.Raw(ViewBag.Colores) ,
                         data: @Html.Raw(@ViewBag.Valores)
                                     }]
@@ -162,7 +137,7 @@
                 options: {
                     title: {
                         display: true,
-                        text: 'Profesores por direccion'
+                        text: 'Departamentos por nombre'
                     }
                 }
             });
@@ -172,7 +147,7 @@
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     @section scripts
         {
-        <script src="~/Scripts/Profesor.js"></script>
+        <script src="~/Scripts/Departamento.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>

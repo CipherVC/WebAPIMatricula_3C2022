@@ -33,8 +33,8 @@
                         especialidad: document.getElementById("IDAgregarProfesorEspecialidad").value,
                         telefono: document.getElementById("IDAgregarProfesorTelefono").value,
                         direccion: document.getElementById("IDAgregarProfesorDireccion").value,
-                        codigoCurso: document.getElementById("IDAgregarProfesorCodigoCurso").value,
-                        codigoDepartamento: document.getElementById("IDAgregarProfesorCodigoCurso").value
+                        codigCurso: document.getElementById("IDAgregarProfesorCodigoCurso").value,
+                        codigoDepartamento: document.getElementById("IDAgregarProfesorCodigoDepartamento").value
 
                     },
                     async: true,
@@ -56,12 +56,14 @@
                     type: 'POST',
                     data: {
                         codigo: document.getElementById("IDAgregarProfesorCodigo").value,
+                        identificacion: document.getElementById("IDAgregarProfesorIdentificacion").value,
                         nombreCompleto: document.getElementById("IDAgregarProfesorNombre").value,
                         especialidad: document.getElementById("IDAgregarProfesorEspecialidad").value,
                         telefono: document.getElementById("IDAgregarProfesorTelefono").value,
                         direccion: direccionSelect,
                         codigoCurso: document.getElementById("IDAgregarProfesorCodigoCurso").value,
-                        codigoDepartamento: document.getElementById("IDAgregarProfesorCodigoCurso").value
+                        codigoDepartamento: document.getElementById("IDAgregarProfesorCodigoDepartamento").value
+
                     },
                     async: true,
                     cache: false,
@@ -148,7 +150,7 @@ function limpiarCampos() {
     document.getElementById("IDAgregarProfesorTelefono").value = "";
     document.getElementById("IDAgregarProfesorDireccion").value = "";
     document.getElementById("IDAgregarProfesorCodigoCurso").value = "";
-    document.getElementById("IDAgregarProfesorCodigoDepartamento").value = "";
+    document.getElementById("IDAgregarProfesorDepartamento").value = "";
 
     $("IDAgregarProfesorIdentificacion").css('border', '1px solid #ced4da');
     $("IDAgregarProfesorNombre").css('border', '1px solid #ced4da');
@@ -169,7 +171,6 @@ function validarCamposProfesor() {
     var agregarProfesorTelefono = document.getElementById("IDAgregarProfesorTelefono").value;
     var agregarProfesorDireccion = document.getElementById("IDAgregarProfesorDireccion").value;
     var agregarProfesorCodigoCurso = document.getElementById("IDAgregarProfesorCodigoCurso").value;
-    var agregarProfesorCodigoDepartamento = document.getElementById("IDAgregarProfesorCodigoDepartamento").value;
 
     if (agregarProfesorIdentificacion == "") {
         $("#IDAgregarProfesorIdentificacion").css("border", "1px solid red");
@@ -185,12 +186,41 @@ function validarCamposProfesor() {
         $('#IDAgregarProfesorNombre').css('border', '1px solid #ced4da');
     }
 
-    if (agregarProfesorEspeciadlidad == "") {
+    if (agregarProfesorEspecialidad == "") {
         $("#IDAgregarProfesorEspecialidad").css("border", "1px solid red");
         bandera = false;
     } else {
         $('#IDAgregarProfesorEspecialidad').css('border', '1px solid #ced4da');
     }
+
+    if (agregarProfesorTelefono == "") {
+        $("#IDAgregarProfesorTelefono").css("border", "1px solid red");
+        bandera = false;
+    } else {
+        $('#IDAgregarProfesorTelefono').css('border', '1px solid #ced4da');
+    }
+
+    if (agregarProfesorDireccion == "") {
+        $("#IDAgregarProfesorDireccion").css("border", "1px solid red");
+        bandera = false;
+    } else {
+        $('#IDAgregarProfesorDireccion').css('border', '1px solid #ced4da');
+    }
+
+    if (agregarProfesorCodigoCurso == "") {
+        $("#IDAgregarProfesorCodigoCurso").css("border", "1px solid red");
+        bandera = false;
+    } else {
+        $('#IDAgregarProfesorCodigoCurso').css('border', '1px solid #ced4da');
+    }
+
+    if (agregarProfesorCodigoDepartamento == "") {
+        $("#IDAgregarProfesorCodigoDepartamento").css("border", "1px solid red");
+        bandera = false;
+    } else {
+        $('#IDAgregarProfesorCodigoDepartamento').css('border', '1px solid #ced4da');
+    }
+
 
     if (agregarProfesorIdentificacion == "") {
         $("#IDAgregarProfesorIdentificacion").css("border", "1px solid red");
@@ -204,7 +234,6 @@ function validarCamposProfesor() {
 }
 
 function VerDetalleProfesor(codigo) {
-
     $.ajax({
         url: '/Profesor/VerDetalleProfesor',
         type: 'POST',
@@ -216,14 +245,16 @@ function VerDetalleProfesor(codigo) {
         cache: false,
         // contentType: 'application/json',
         success: function (response) {
-            document.getElementById("IDAgregarProfesorTelefono").value = response.telefono;
+            document.getElementById("IDAgregarProfesorCodigo").value = response.codigo;
+            document.getElementById("IDAgregarProfesorIdentificacion").value = response.identificacion;
             document.getElementById("IDAgregarProfesorNombre").value = response.nombreCompleto;
             document.getElementById("IDAgregarProfesorEspecialidad").value = response.especialidad;
-            document.getElementById("IDAgregarProfesorIdentificacion").value = response.identificacion;
-            document.getElementById("IDAgregarProfesorCodigo").value = response.codigo;
+            document.getElementById("IDAgregarProfesorTelefono").value = response.telefono;
             document.getElementById("IDAgregarProfesorDireccion").value = response.direccion;
-            document.getElementById("IDAgregarProfesorCodigoCurso").value = response.codigoCurso;
+            document.getElementById("IDAgregarProfesorCodigCurso").value = response.codigCurso;
             document.getElementById("IDAgregarProfesorCodigoDepartamento").value = response.codigoDepartamento;
+
+            
             $('#modalAgregarProfesor').modal('show');
         },
         error: function (request, status, err) {
