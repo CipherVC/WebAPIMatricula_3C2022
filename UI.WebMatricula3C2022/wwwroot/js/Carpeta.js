@@ -28,10 +28,10 @@
                     url: '/Carpeta/AgregarCarpeta',
                     type: 'POST',
                     data: {
-                        identificacion: document.getElementById("IDAgregarCarpetaIdentificacion").value,
-                        nombreCompleto: document.getElementById("IDAgregarCarpetaNombre").value,
-                        correoElectronico: document.getElementById("IDAgregarCarpetaCorreo").value,
-                        estado: document.getElementById("IDAgregarCarpetaEstado").value
+                        Nombre: document.getElementById("IDAgregarCarpetaNombre").value,
+                        FechaCreacion: document.getElementById("IDAgregarCarpetaFechaCreacion").value,
+                        VisibleEstudiantes: document.getElementById("IDAgregarCarpetaVisibleEstudiantes").value,
+                        CodigoCurso: document.getElementById("IDAgregarCarpetaCodigoCurso").value
 
                     },
                     async: true,
@@ -46,17 +46,17 @@
                 });
             }
             else {
-                var e = document.getElementById("IDAgregarCarpetaEstado");
+                var e = document.getElementById("IDAgregarCarpetaVisibleEstudiantes");
                 var estadoSelect = e.value;
                 $.ajax({
                     url: '/Carpeta/EditarCarpeta',
                     type: 'POST',
                     data: {
                         codigo: document.getElementById("IDAgregarCarpetaCodigo").value,
-                        identificacion: document.getElementById("IDAgregarCarpetaIdentificacion").value,
-                        nombreCompleto: document.getElementById("IDAgregarCarpetaNombre").value,
-                        correoElectronico: document.getElementById("IDAgregarCarpetaCorreo").value,
-                        estado: estadoSelect
+                        FechaCreacion: document.getElementById("IDAgregarCarpetaFechaCreacion").value,
+                        Nombre: document.getElementById("IDAgregarCarpetaNombre").value,
+                        CodigoCurso: document.getElementById("IDAgregarCarpetaCodigoCurso").value,
+                        VisibleEstudiantes: estadoSelect
                     },
                     async: true,
                     cache: false,
@@ -137,10 +137,10 @@ function limpiarCampos() {
     $('#modalAgregarCarpeta').modal('hide');
 
     document.getElementById("IDAgregarCarpetaCodigo").value = "";
-    document.getElementById("IDAgregarCarpetaIdentificacion").value = "";
     document.getElementById("IDAgregarCarpetaNombre").value = "";
-    document.getElementById("IDAgregarCarpetaCorreo").value = "";
-    document.getElementById("IDAgregarCarpetaEstado").value = "";
+    document.getElementById("IDAgregarCarpetaFechaCreacion").value = "";
+    document.getElementById("IDAgregarCarpetaVisibleEstudiantes").value = "";
+    document.getElementById("IDAgregarCarpetaCodigoCurso").value = "";
 
     $("IDAgregarCarpetaIdentificacion").css('border', '1px solid #ced4da');
     $("IDAgregarCarpetaNombre").css('border', '1px solid #ced4da');
@@ -152,17 +152,10 @@ function limpiarCampos() {
 
 function validarCamposCarpeta() {
     var bandera = true;
-    var agregarCarpetaIdentificacion = document.getElementById("IDAgregarCarpetaIdentificacion").value;
     var agregarCarpetaNombre = document.getElementById("IDAgregarCarpetaNombre").value;
-    var agregarCarpetaCorreo = document.getElementById("IDAgregarCarpetaCorreo").value;
-    var agregarCarpetaEstado = document.getElementById("IDAgregarCarpetaEstado").value;
-
-    if (agregarCarpetaIdentificacion == "") {
-        $("#IDAgregarCarpetaIdentificacion").css("border", "1px solid red");
-        bandera = false;
-    } else {
-        $('#IDAgregarCarpetaIdentificacion').css('border', '1px solid #ced4da');
-    }
+    var agregarCarpetaFechaCreacion = document.getElementById("IDAgregarCarpetaFechaCreacion").value;
+    var agregarCarpetaVisibleEstudiantes = document.getElementById("IDAgregarCarpetaVisibleEstudiantes").value;
+    var agregarCarpetaCodigoCurso = document.getElementById("IDAgregarCarpetaCodigoCurso").value;
 
     if (agregarCarpetaNombre == "") {
         $("#IDAgregarCarpetaNombre").css("border", "1px solid red");
@@ -171,18 +164,25 @@ function validarCamposCarpeta() {
         $('#IDAgregarCarpetaNombre').css('border', '1px solid #ced4da');
     }
 
-    if (agregarCarpetaCorreo == "") {
-        $("#IDAgregarCarpetaCorreo").css("border", "1px solid red");
+    if (agregarCarpetaFechaCreacion == "") {
+        $("#IDAgregarCarpetaFechaCreacion").css("border", "1px solid red");
         bandera = false;
     } else {
-        $('#IDAgregarCarpetaCorreo').css('border', '1px solid #ced4da');
+        $('#IDAgregarCarpetaFechaCreacion').css('border', '1px solid #ced4da');
     }
 
-    if (agregarCarpetaIdentificacion == "") {
-        $("#IDAgregarCarpetaIdentificacion").css("border", "1px solid red");
+    if (agregarCarpetaVisibleEstudiantes == "") {
+        $("#IDAgregarCarpetaVisibleEstudiantes").css("border", "1px solid red");
         bandera = false;
     } else {
-        $('#IDAgregarCarpetaIdentificacion').css('border', '1px solid #ced4da');
+        $('#IDAgregarCarpetaVisibleEstudiantes').css('border', '1px solid #ced4da');
+    }
+
+    if (agregarCarpetaCodigoCurso == "") {
+        $("#IDAgregarCarpetaCodigoCurso").css("border", "1px solid red");
+        bandera = false;
+    } else {
+        $('#IDAgregarCarpetaCodigoCurso').css('border', '1px solid #ced4da');
     }
 
     return bandera;
@@ -201,10 +201,10 @@ function VerDetalleCarpeta(codigo) {
         cache: false,
         // contentType: 'application/json',
         success: function (response) {
-            document.getElementById("IDAgregarCarpetaEstado").value = response.estado;
-            document.getElementById("IDAgregarCarpetaNombre").value = response.nombreCompleto;
-            document.getElementById("IDAgregarCarpetaCorreo").value = response.correoElectronico;
-            document.getElementById("IDAgregarCarpetaIdentificacion").value = response.identificacion;
+            document.getElementById("IDAgregarCarpetaNombre").value = response.nombre;
+            document.getElementById("IDAgregarCarpetaFechaCreacion").value = response.fechaCreacion;
+            document.getElementById("IDAgregarCarpetaVisibleEstudiantes").value = response.visibleEstudiantes;
+            document.getElementById("IDAgregarCarpetaCodigoCurso").value = response.codigoCurso;
             document.getElementById("IDAgregarCarpetaCodigo").value = response.codigo;
             $('#modalAgregarCarpeta').modal('show');
         },

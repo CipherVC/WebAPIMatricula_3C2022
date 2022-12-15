@@ -22,15 +22,15 @@ namespace UI.WebMatricula3C2022.Controllers
             var colores = new List<string>();
             var valores = new List<string>();
 
-            foreach (var estado in listaCarpetas.ListaCarpeta.GroupBy(e => e.FechaCreacion.Day)
+            foreach (var estado in listaCarpetas.ListaCarpeta.GroupBy(e => e.FechaCreacion.Month)
                 .Select(group => new
                 {
-                    Estado = group.Key,
+                    Fecha = group.Key,
                     Cantidad = group.Count()
-                }).OrderBy(x => x.Estado))
+                }).OrderBy(x => x.Fecha))
             {
                 string color = String.Format("#{0:X6}", random.Next(0x1000000));
-                etiquetas.Add(estado.Estado.ToString());
+                etiquetas.Add(estado.Fecha.ToString());
                 valores.Add(estado.Cantidad.ToString());
                 colores.Add(color);
             }

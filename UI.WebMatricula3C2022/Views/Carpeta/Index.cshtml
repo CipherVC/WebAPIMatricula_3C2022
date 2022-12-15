@@ -113,7 +113,7 @@
             <div class="modal-content">
                 <br />
                 <div style="width: 80%; margin-left: 10%" class="modal-body">
-                    <p>¿Está seguro que desea eliminar el estudiante?</p>
+                    <p>¿Está seguro que desea eliminar esta carpeta?</p>
                 </div>
                 <br />
                 <div class="modal-footer">
@@ -134,7 +134,7 @@
                 data: {
                     labels: @Html.Raw(ViewBag.Etiquetas),
                     datasets: [{
-                        label: "Carpetas por estado",
+                        label: "Carpetas creadas por mes",
                         backgroundColor: @Html.Raw(ViewBag.Colores) ,
                         data: @Html.Raw(@ViewBag.Valores)
                                     }]
@@ -142,7 +142,7 @@
                 options: {
                     title: {
                         display: true,
-                        text: 'Carpetas por estado'
+                        text: 'Carpetas creadas por mes'
                     }
                 }
             });
