@@ -1,0 +1,58 @@
+﻿create procedure [dbo].[Agregar_Contenido]
+	@NombreArchivo varchar(50),
+	@Ruta varchar(50),
+	@CodigoCarpeta int,
+	@FechaCreacion datetime
+	AS BEGIN
+    insert into Contenido select @NombreArchivo,@ruta,@CodigoCarpeta,@FechaCreacion select SCOPE_IDENTITY() as Codigo 
+	end;
+
+    ///////////////////////////////////
+	create or ALTER PROCEDURE [dbo].[Editar_Contenido]
+	@Codigo int,
+    @NombreArchivo varchar(50),
+	@Ruta varchar(50),
+	@CodigoCarpeta int,
+	@FechaCreacion datetime
+
+AS BEGIN
+    SET NOCOUNT ON;
+
+
+
+       UPDATE Contenido
+            SET
+             NombreArchivo = @NombreArchivo,
+             Ruta = @Ruta,
+             CodigoCarpeta = @CodigoCarpeta,
+             FechaCreacion = @FechaCreacion
+        WHERE Codigo = @Codigo
+
+
+
+       SELECT
+         Codigo,
+         NombreDepartamento,
+         DescripcionDepartamento,
+         DirectorDepartamento,
+         Telefono
+    FROM Departamento
+    WHERE Codigo = @Codigo
+END
+//////////////////////////
+create PROCEDURE [dbo].[Eliminar_Contenido]
+    @Codigo INT
+
+AS BEGIN
+    SET NOCOUNT ON;
+
+
+
+   DELETE
+    FROM Contenido
+    WHERE Codigo = @Codigo
+
+
+
+END
+/////////////////////////////
